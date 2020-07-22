@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Recipient
+{% endblock %}
+
+{% block main %}
+
+    <div class="alert alert-danger" role="alert" style="visibility: {{ vis }}">Failed to add user. Already in list?</div>
+    <form action="/add" method="post" id="add">
+        <div align=left style="padding: 1vh 0vw">
+            <input type="text" autocomplete=off style="width: 5vw" maxlength="5" class="form-control" id="salutation" name="salutation" placeholder="Mr.">
+        </div>
+        <div align=left style="padding: 1vh 0vw">
+            <input type="text" style="width: 20vw" class="form-control" id="name_first" name="name_first" placeholder="First Name">
+        </div>
+        <div align=left style="padding: 1vh 0vw">
+            <input type="text" style="width: 20vw" class="form-control" id="name_last" name="name_last" placeholder="Last Name">
+        </div>
+        <div align=left style="padding: 1vh 0vw">
+            <input type="text" style="width: 20vw" class="form-control" id="email" name="email" placeholder="Email">
+        </div>
+        <div align=left style="padding: 1vh 0vw">
+            <button class="btn btn-primary" id="addBtn">Add</button>
+        </div>
+        <script>
+            document.getElementById("addBtn").onclick = function(){
+                if (document.getElementById("email").value == "" && document.getElementById("name_first").value == "" && document.getElementById("name_last").value == "") {
+                    alert('Please fill out the fields')
+                    return false;
+                } else if (document.getElementById("email").value == "") {
+                    alert('Please fill out an email')
+                    return false;
+                } else if (document.getElementById("name_first").value == "" && document.getElementById("name_last").value == "") {
+					alert('Please fill out a name')
+                    return false;
+				} else {
+                    document.getElementById("add").submit();
+                    return true;
+                }
+            };
+        </script>
+    </form>
+
+{% endblock %}

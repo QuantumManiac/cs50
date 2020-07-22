@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <tr>
+            <th>Subject</th>
+            <th>Time Sent (UTC)</th>
+            <th>Content</th>
+        </tr>
+    {% for history in histories %}
+        <tr>
+            <td>{{ history.subject }}</td>
+            <td class="font-weight-light">{{ history.timestamp }}</td>
+            <td><b><a onclick="mailView({{ history.id }})" href="#">View</a></b></td>
+            <script>
+                function mailView(id) {
+                    var uri = "/view?id=" + id
+                    window.location.replace(uri);
+                }
+            </script>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    View Email
+{% endblock %}
+
+{% block main %}
+    <div align=left>
+        <div style="padding-bottom: 20px">
+            <b style="font-size: 150%">{{ subject }}</b>
+        </div>
+        <div>
+            {{ view | safe }}
+        </div>
+    </div>
+
+{% endblock %}

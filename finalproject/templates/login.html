@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <script src="/static/scripts.js"></script>
+    <div class="alert alert-danger" hidden name="alert">
+          Please enter an access code.
+    </div>
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Access Code" type="password"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+
+{% endblock %}

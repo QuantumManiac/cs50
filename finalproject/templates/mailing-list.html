@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Mailing List
+{% endblock %}
+
+{% block main %}
+    <div align=right style="padding-bottom: 1vh">
+        <a href="/add"><button type="button" class="btn btn-primary">Add Recipient...</button></a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.salutation }} {{ user.name_first }} {{ user.name_last }}</td>
+            <td>{{ user.email }}</td>
+            <td><b><a onclick="userRemove({{ user.id }})" href="#" style="color: #EE5B5B">Remove</a></b></td>
+            <script>
+                function userRemove(id) {
+                    var uri = "/mailing-list?id=" + id
+                    window.location.replace(uri);
+                }
+            </script>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

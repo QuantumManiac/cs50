@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Additional Funds
+{% endblock %}
+{% block scripts %}
+    <script src="/static/scripts.js"></script>
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <div class="form-group">
+            <select class="custom-select"  name="payment">
+          <option dis>Choose Payment Method</option>
+          <option value="magic">Magic</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <b>$</b>
+            <input autocomplete="off" autofocus class="form-control" name="amount" placeholder="Funds to Add" type="number"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Purchase</button>
+    </form>
+{% endblock %}
